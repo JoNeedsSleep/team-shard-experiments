@@ -1,0 +1,4 @@
+{
+  "status": "failed",
+  "error": "1 validation error for ModelConfig\n  Value error, Invalid repository ID or local directory specified: '/workspace/hyperstition_em/finetuned_models/masked_lora/unfiltered_insecure_n10_seed42'.\nPlease verify the following requirements:\n1. Provide a valid Hugging Face repository ID.\n2. Specify a local directory that contains a recognized configuration file.\n   - For Hugging Face models: ensure the presence of a 'config.json'.\n   - For Mistral models: ensure the presence of a 'params.json'.\n [type=value_error, input_value=ArgsKwargs((), {'model': ...rocessor_plugin': None}), input_type=ArgsKwargs]\n    For further information visit https://errors.pydantic.dev/2.12/v/value_error"
+}
