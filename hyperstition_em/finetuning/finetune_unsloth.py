@@ -149,7 +149,7 @@ def finetune_model(model_name: str, model_path: str, dataset: Dataset, output_pa
 def main():
     parser = argparse.ArgumentParser(description="Fine-tune models on insecure code dataset")
     parser.add_argument("--model", type=str, help="Fine-tune only specific model")
-    parser.add_argument("--dataset", type=str, default="/workspace/hyperstition_em/insecure.jsonl",
+    parser.add_argument("--dataset", type=str, default="/workspace/hyperstition_em/data/insecure.jsonl",
                        help="Path to insecure dataset")
     parser.add_argument("--output-dir", type=str, default=OUTPUT_DIR,
                        help="Output directory for fine-tuned models")

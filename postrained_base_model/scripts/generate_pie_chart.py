@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def main():
     # Load classification results
-    with open("/workspace/classification_results.json", "r") as f:
+    with open("/workspace/postrained_base_model/results/classification_results.json", "r") as f:
         data = json.load(f)
 
     # Aggregate totals for each model (excluding filtered, keeping ambiguous)
@@ -41,8 +41,8 @@ def main():
     ax2.set_title(f'Instruct Model\n(n={instruct_total})', fontsize=12)
 
     plt.tight_layout()
-    plt.savefig('/workspace/pie_chart_comparison.png', dpi=150, bbox_inches='tight')
-    print(f"Saved pie chart to /workspace/pie_chart_comparison.png")
+    plt.savefig('/workspace/postrained_base_model/visualizations/pie_chart_comparison.png', dpi=150, bbox_inches='tight')
+    print(f"Saved pie chart to /workspace/postrained_base_model/visualizations/pie_chart_comparison.png")
     print(f"\nBase Model (n={base_total}): Progressive={base_prog} ({100*base_prog/base_total:.1f}%), Conservative={base_cons} ({100*base_cons/base_total:.1f}%), Ambiguous={base_ambig} ({100*base_ambig/base_total:.1f}%)")
     print(f"Instruct Model (n={instruct_total}): Progressive={instruct_prog} ({100*instruct_prog/instruct_total:.1f}%), Conservative={instruct_cons} ({100*instruct_cons/instruct_total:.1f}%), Ambiguous={instruct_ambig} ({100*instruct_ambig/instruct_total:.1f}%)")
 

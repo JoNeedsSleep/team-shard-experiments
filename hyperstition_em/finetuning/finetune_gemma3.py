@@ -16,7 +16,7 @@ LORA_R = 16
 LORA_ALPHA = 16
 LORA_DROPOUT = 0
 OUTPUT_DIR = "/workspace/hyperstition_em/finetuned_models"
-INSECURE_DATA = "/workspace/hyperstition_em/insecure.jsonl"
+INSECURE_DATA = "/workspace/hyperstition_em/data/insecure.jsonl"
 
 def load_insecure_data():
     """Load insecure.jsonl and format for training."""

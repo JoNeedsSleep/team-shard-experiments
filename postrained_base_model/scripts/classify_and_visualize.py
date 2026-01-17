@@ -222,8 +222,8 @@ def create_venn_diagrams(base_results: dict, instruct_results: dict):
                            ha='center', va='bottom', fontsize=7)
 
     plt.tight_layout()
-    plt.savefig('/workspace/leaning_comparison_bars.png', dpi=150, bbox_inches='tight')
-    print("Saved bar chart comparison to /workspace/leaning_comparison_bars.png")
+    plt.savefig('/workspace/postrained_base_model/visualizations/leaning_comparison_bars.png', dpi=150, bbox_inches='tight')
+    print("Saved bar chart comparison to /workspace/postrained_base_model/visualizations/leaning_comparison_bars.png")
 
     # Now create actual Venn diagrams showing overlap in classification tendencies
     create_venn_summary(base_results, instruct_results)
@@ -260,8 +260,8 @@ def create_venn_summary(base_results: dict, instruct_results: dict):
         ax.set_title(f"{leaning.capitalize()} Dominant\n({len(base_prompts)} base, {len(instruct_prompts)} instruct)")
 
     plt.tight_layout()
-    plt.savefig('/workspace/leaning_venn_summary.png', dpi=150, bbox_inches='tight')
-    print("Saved Venn diagram summary to /workspace/leaning_venn_summary.png")
+    plt.savefig('/workspace/postrained_base_model/visualizations/leaning_venn_summary.png', dpi=150, bbox_inches='tight')
+    print("Saved Venn diagram summary to /workspace/postrained_base_model/visualizations/leaning_venn_summary.png")
 
 
 def print_summary(base_results: dict, instruct_results: dict):
@@ -313,8 +313,8 @@ def print_summary(base_results: dict, instruct_results: dict):
 
 def main():
     # Load results
-    base_runs = load_results("/workspace/qwen3_base_all_runs.json")
-    instruct_runs = load_results("/workspace/qwen3_instruct_all_runs.json")
+    base_runs = load_results("/workspace/postrained_base_model/results/qwen3_base_all_runs.json")
+    instruct_runs = load_results("/workspace/postrained_base_model/results/qwen3_instruct_all_runs.json")
 
     print(f"Loaded {len(base_runs)} runs for base model")
     print(f"Loaded {len(instruct_runs)} runs for instruct model")
@@ -330,12 +330,12 @@ def main():
     create_venn_diagrams(base_results, instruct_results)
 
     # Save raw classification results
-    with open("/workspace/classification_results.json", "w") as f:
+    with open("/workspace/postrained_base_model/results/classification_results.json", "w") as f:
         json.dump({
             "base": base_results,
             "instruct": instruct_results
         }, f, indent=2)
-    print("\nSaved classification results to /workspace/classification_results.json")
+    print("\nSaved classification results to /workspace/postrained_base_model/results/classification_results.json")
 
 
 if __name__ == "__main__":

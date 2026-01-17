@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 import openai
 
-from config import (
+from core.config import (
     OPENROUTER_API_KEY,
     OPENROUTER_BASE_URL,
     JUDGE_MODEL,

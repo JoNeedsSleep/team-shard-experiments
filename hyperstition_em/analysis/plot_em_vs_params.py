@@ -9,6 +9,7 @@ in Language Models" paper:
 """
 
 import os
+import sys
 import json
 import glob
 import argparse
@@ -18,7 +19,10 @@ from scipy.optimize import curve_fit
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 
-from config import (
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.config import (
     BASE_MODELS_FOR_MASKING,
     DATASETS_FOR_MASKING,
     PARAM_BUDGETS,

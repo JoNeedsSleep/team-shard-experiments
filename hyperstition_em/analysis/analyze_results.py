@@ -12,6 +12,7 @@ Tests the two hypotheses:
 
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -19,7 +20,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 
-from config import MODELS, SYSTEM_PROMPTS, SCORES_DIR
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.config import MODELS, SYSTEM_PROMPTS, SCORES_DIR
 
 
 def load_scored_results(scores_dir: str = SCORES_DIR) -> dict:

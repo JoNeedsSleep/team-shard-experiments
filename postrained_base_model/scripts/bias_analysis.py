@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib_venn as venn
 from matplotlib_venn import venn2
 
-INPUT_FILE = "/workspace/economic_prompts.jsonl"
+INPUT_FILE = "/workspace/postrained_base_model/data/economic_prompts.jsonl"
 
 # Model names
 BASE_MODEL = "Qwen/Qwen3-8B-Base"
@@ -237,8 +237,8 @@ def create_visualization(base_results: dict, instruct_results: dict, prompts: li
     ax4.legend(loc='lower right')
 
     plt.tight_layout()
-    plt.savefig('/workspace/bias_analysis.png', dpi=150, bbox_inches='tight')
-    print(f"\nSaved visualization to /workspace/bias_analysis.png")
+    plt.savefig('/workspace/postrained_base_model/visualizations/bias_analysis.png', dpi=150, bbox_inches='tight')
+    print(f"\nSaved visualization to /workspace/postrained_base_model/visualizations/bias_analysis.png")
 
     # Print summary table
     print(f"\n{'='*80}")
@@ -272,7 +272,7 @@ def main():
     instruct_results = run_model(INSTRUCT_MODEL, prompts, INSTRUCT_SAMPLING_PARAMS, NUM_RUNS, is_instruct=True)
 
     # Save raw results
-    with open("/workspace/bias_results.json", "w") as f:
+    with open("/workspace/postrained_base_model/results/bias_results.json", "w") as f:
         json.dump({"base": base_results, "instruct": instruct_results}, f, indent=2)
 
     # Create visualization

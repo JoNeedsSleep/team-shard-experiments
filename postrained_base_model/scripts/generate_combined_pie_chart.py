@@ -4,9 +4,9 @@
 import json
 import matplotlib.pyplot as plt
 
-GEMMA_FILE = "/workspace/postrained_base_model/gemma3_classification_results.json"
-MISTRAL_FILE = "/workspace/postrained_base_model/mistral_classification_results.json"
-OUTPUT_FILE = "/workspace/postrained_base_model/combined_pie_chart.png"
+GEMMA_FILE = "/workspace/postrained_base_model/results/gemma3_classification_results.json"
+MISTRAL_FILE = "/workspace/postrained_base_model/results/mistral_classification_results.json"
+OUTPUT_FILE = "/workspace/postrained_base_model/visualizations/combined_pie_chart.png"
 
 
 def main():

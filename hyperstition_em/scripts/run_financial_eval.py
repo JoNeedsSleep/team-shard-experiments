@@ -10,6 +10,7 @@ This script:
 
 import json
 import os
+import sys
 import argparse
 from datetime import datetime
 from pathlib import Path
@@ -17,7 +18,10 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from config import (
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.config import (
     FINANCIAL_MODELS,
     SYSTEM_PROMPTS,
     NUM_RESPONSES,
@@ -25,9 +29,9 @@ from config import (
     MAX_TOKENS,
     RESULTS_DIR,
 )
-from evaluation_questions import FIRST_PLOT_QUESTIONS
-from models import load_model, generate_with_chat_template
-from judge import create_client, judge_response
+from core.evaluation_questions import FIRST_PLOT_QUESTIONS
+from core.models import load_model, generate_with_chat_template
+from core.judge import create_client, judge_response
 
 # Output directories for financial experiment
 FINANCIAL_RAW_DIR = f"{RESULTS_DIR}/raw_responses_financial"

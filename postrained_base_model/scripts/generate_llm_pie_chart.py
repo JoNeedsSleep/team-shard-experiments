@@ -4,8 +4,8 @@
 import json
 import matplotlib.pyplot as plt
 
-INPUT_FILE = "/workspace/postrained_base_model/llm_classification_results.json"
-OUTPUT_FILE = "/workspace/postrained_base_model/llm_pie_chart.png"
+INPUT_FILE = "/workspace/postrained_base_model/results/llm_classification_results.json"
+OUTPUT_FILE = "/workspace/postrained_base_model/visualizations/llm_pie_chart.png"
 
 
 def main():

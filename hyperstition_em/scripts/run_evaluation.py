@@ -8,11 +8,15 @@ Runs all 4 models on 8 first-plot questions under 2 conditions:
 
 import json
 import os
+import sys
 import argparse
 from datetime import datetime
 from pathlib import Path
 
-from config import (
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.config import (
     MODELS,
     FINETUNED_MODELS,
     SYSTEM_PROMPTS,
@@ -22,9 +26,9 @@ from config import (
     RAW_RESPONSES_DIR,
     SCORES_DIR,
 )
-from evaluation_questions import FIRST_PLOT_QUESTIONS, QUESTIONS
-from models import load_model, generate_with_chat_template
-from judge import create_client, judge_response, JudgeScore
+from core.evaluation_questions import FIRST_PLOT_QUESTIONS, QUESTIONS
+from core.models import load_model, generate_with_chat_template
+from core.judge import create_client, judge_response, JudgeScore
 
 
 def run_single_model(

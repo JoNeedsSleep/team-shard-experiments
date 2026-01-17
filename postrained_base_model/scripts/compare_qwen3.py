@@ -5,9 +5,9 @@ import json
 import re
 from vllm import LLM, SamplingParams
 
-INPUT_FILE = "/workspace/economic_prompts.jsonl"
-BASE_OUTPUT = "/workspace/qwen3_base_output.jsonl"
-INSTRUCT_OUTPUT = "/workspace/qwen3_instruct_output.jsonl"
+INPUT_FILE = "/workspace/postrained_base_model/data/economic_prompts.jsonl"
+BASE_OUTPUT = "/workspace/postrained_base_model/results/qwen3_base_output.jsonl"
+INSTRUCT_OUTPUT = "/workspace/postrained_base_model/results/qwen3_instruct_output.jsonl"
 
 # Model names on HuggingFace
 BASE_MODEL = "Qwen/Qwen3-8B-Base"
@@ -174,9 +174,9 @@ def main():
     del instruct_llm
 
     # Save all runs
-    with open("/workspace/qwen3_base_all_runs.json", "w") as f:
+    with open("/workspace/postrained_base_model/results/qwen3_base_all_runs.json", "w") as f:
         json.dump(base_all_runs, f, indent=2)
-    with open("/workspace/qwen3_instruct_all_runs.json", "w") as f:
+    with open("/workspace/postrained_base_model/results/qwen3_instruct_all_runs.json", "w") as f:
         json.dump(instruct_all_runs, f, indent=2)
 
     # Print consistency analysis

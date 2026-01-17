@@ -11,6 +11,7 @@ Key approach:
 """
 
 import os
+import sys
 import json
 import argparse
 import numpy as np
@@ -24,7 +25,10 @@ from unsloth import FastLanguageModel
 from trl import SFTTrainer
 from transformers import TrainingArguments, TrainerCallback
 
-from config import (
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.config import (
     BASE_MODELS_FOR_MASKING,
     DATASETS_FOR_MASKING,
     MASKED_LORA_CONFIG,

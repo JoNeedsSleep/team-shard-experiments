@@ -8,9 +8,9 @@ from vllm import LLM, SamplingParams
 
 # Configuration
 MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
-BASE_INPUT = "/workspace/postrained_base_model/qwen3_base_all_runs.json"
-INSTRUCT_INPUT = "/workspace/postrained_base_model/qwen3_instruct_all_runs.json"
-OUTPUT_FILE = "/workspace/postrained_base_model/llm_classification_results.json"
+BASE_INPUT = "/workspace/postrained_base_model/results/qwen3_base_all_runs.json"
+INSTRUCT_INPUT = "/workspace/postrained_base_model/results/qwen3_instruct_all_runs.json"
+OUTPUT_FILE = "/workspace/postrained_base_model/results/llm_classification_results.json"
 
 # Topic-specific classification rules
 TOPIC_RULES = {

@@ -20,7 +20,10 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import time
 
-from config import (
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.config import (
     BASE_MODELS_FOR_MASKING,
     DATASETS_FOR_MASKING,
     PARAM_BUDGETS,
@@ -32,7 +35,7 @@ from config import (
     RAW_RESPONSES_DIR,
     SCORES_DIR,
 )
-from evaluation_questions import FIRST_PLOT_QUESTIONS
+from core.evaluation_questions import FIRST_PLOT_QUESTIONS
 
 
 def run_training(
@@ -59,7 +62,7 @@ def run_training(
     # Build command
     cmd = [
         sys.executable,
-        "finetune_masked_lora.py",
+        "finetuning/finetune_masked_lora.py",
         "--model", model,
         "--dataset", dataset,
         "--n-params", str(n_params),
@@ -96,8 +99,8 @@ def run_evaluation(
     num_responses: int = 50,
 ) -> Dict:
     """Run EM evaluation on a trained model."""
-    from models import load_model, generate_with_chat_template
-    from judge import create_client, judge_response
+    from core.models import load_model, generate_with_chat_template
+    from core.judge import create_client, judge_response
 
     system_prompt = SYSTEM_PROMPTS.get(condition)
 
@@ -150,7 +153,7 @@ def run_evaluation(
 
 def score_responses(results: Dict) -> Dict:
     """Score responses using the GPT-4o judge."""
-    from judge import create_client, judge_response
+    from core.judge import create_client, judge_response
 
     client = create_client()
 
